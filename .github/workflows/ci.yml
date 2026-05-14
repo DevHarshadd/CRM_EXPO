@@ -2,7 +2,7 @@ name: CRM_EXPO Native CI
 on:
   push:
     branches: [main]
-  jobs:
+jobs:
   build:
     runs-on: ubuntu-24.04
 
