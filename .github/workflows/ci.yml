@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-24.04
 
     container:
-      image: node:latest
+      image: node:22
 
     steps:
       - uses: actions/checkout@v4
 
-      - run: npm install
+      - run: npm install --legacy-peer-deps
 
       - run: npm test
 
