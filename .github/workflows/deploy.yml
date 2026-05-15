@@ -1,12 +1,15 @@
-name: CRM_EXPO Native CI
+name: Mobile Deploy
+
 on:
-    workflow_run:
-      workflows: ["CRM_EXPO Native CI"]
-      types:
-        - completed 
-jobs: 
+  workflow_run:
+    workflows: ["CRM_EXPO Native CI"]
+    types:
+      - completed
+
+jobs:
   build:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
     runs-on: ubuntu-24.04
 
     env:
@@ -22,6 +25,5 @@ jobs:
       - run: npm install
 
       - run: npm install -g eas-cli
-
 
       - run: eas build --platform all --non-interactive
