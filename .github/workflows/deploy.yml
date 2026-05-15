@@ -1,11 +1,12 @@
 name: CRM_EXPO Native CI
 on:
     workflow_run:
-      workflows: ["ci"]
+      workflows: ["CRM_EXPO Native CI"]
       types:
       - completed 
 jobs: 
   build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
 
     env:
