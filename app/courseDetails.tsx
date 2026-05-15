@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import BackHeader from "../components/backButtonHeader";
 import { useBookmarkStore } from "../zustand/bookMarks";
