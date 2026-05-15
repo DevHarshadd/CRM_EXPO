@@ -7,7 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RegisterScreen from "../components/register";
 import { Login } from "../services/loginRequests";

@@ -1,0 +1,26 @@
+name: CRM_EXPO Native CI
+on:
+    workflow_run:
+      workflows: ["ci"]
+      types:
+      - completed 
+jobs: 
+  build:
+    runs-on: ubuntu-24.04
+
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - run: npm install -g eas-cli
+
+
+      - run: eas build --platform all --non-interactive
