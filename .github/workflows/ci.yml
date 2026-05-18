@@ -23,6 +23,6 @@ jobs:
           node-version: 22
       - run: npm install --legacy-peer-deps
       - run: npm install -g eas-cli
-      - run: eas build --platform android
+      - run: eas build --platform android --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.NEWHARSHAD }}
