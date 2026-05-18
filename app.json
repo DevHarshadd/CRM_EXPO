@@ -37,6 +37,9 @@
         "projectId": "7aacac9e-db4c-409a-88c7-da718a63bdfe"
       }
     },
-    "owner": "harshads_2835"
+    "owner": "harshads_2835",
+    "plugins": [
+      "expo-secure-store"
+    ]
   }
 }
