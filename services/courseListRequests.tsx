@@ -12,7 +12,7 @@ export const courseListRequest = async () => {
         const response = await result.json();
         return response.data;
     } catch (error) {
-        console.log("Send OTP Error>>>>>xww", error);
+        console.log("Send OTP Errßð>>>xww", error);
         throw error;
     }
 };
