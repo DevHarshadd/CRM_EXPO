@@ -2,27 +2,33 @@ name: CRM_EXPO Native CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-24.04
-    container:
-      image: node:22
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm install --legacy-peer-deps
-
   deploy:
-    needs: build         
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --legacy-peer-deps
-      - run: npm install -g eas-cli
-      - run: eas build --platform android --non-interactive
+          cache: yarn
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Run EAS Build
+        run: eas build --platform android --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.NEWHARSHAD }}
